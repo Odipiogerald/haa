@@ -1,0 +1,206 @@
+Problem statement: How to control the vice of skipping and dodging duties by workers.
+
+
+Sub-problems: unproper time management 
+                             Reluctant supervision 
+                             unfavourable working conditions
+                             
+                             
+ sub solutions: var solutions To Unproper Time Management = ["Create a schedule and stick to it","Break down larger tasks into smaller ones",     "Prioritize tasks"];
+ 
+ 
+ var solutions to reluctant_supervisionsolutions = [
+    "Active engagement and communication with employees to understand their concerns and address them proactively",
+    "Regular training and development programs to enhance skills and boost motivation",
+    "Implementing a rewards and recognition system to incentivize employee engagement and productivity"];
+    
+    
+    unfavourable_working_conditions_solutions = [
+    "Improving physical working conditions, such as temperature, lighting, and ergonomic setups",
+    "Providing proper safety equipment and implementing safety protocols to ensure a safe working environment",
+    "Addressing issues related to noise, air quality, and other environmental factors that affect employee comfort",
+    "Offering fair and competitive compensation and benefits packages"];
+    
+    
+control structure(conditional):
+START
+    SET totalHoursWorked = 0
+    SET targetHours = 8
+
+    WHILE totalHoursWorked < targetHours
+        PRINT "Enter the number of hours worked today:"
+        INPUT hoursWorked
+
+        IF hoursWorked > 0 AND hoursWorked <= 24
+            SET totalHoursWorked = totalHoursWorked + hoursWorked
+            PRINT "Total hours worked so far:", totalHoursWorked
+        ELSE
+            PRINT "Invalid input. Please enter a valid number of hours."
+
+        IF totalHoursWorked > targetHours
+            SET overtimeHours = totalHoursWorked - targetHours
+            PRINT "You have worked overtime for", overtimeHours, "hour(s). Remember to manage your time effectively."
+        ELSE IF totalHoursWorked < targetHours
+            SET remainingHours = targetHours - totalHoursWorked
+            PRINT "You have", remainingHours, "hour(s) left to work. Make sure to allocate your time wisely."
+
+    PRINT "You have completed your work for the day. Good job!"
+
+END
+
+
+control structure for reluctant supervision 
+START
+    SET employeeList = [list of employees]
+    SET completedTasks = 0
+    SET totalTasks = [total number of tasks]
+
+    FOR each employee in employeeList
+        PRINT "Supervising", employee
+
+        WHILE completedTasks < totalTasks
+            PRINT "Enter the number of tasks completed by", employee, "today:"
+            INPUT tasksCompleted
+
+            IF tasksCompleted >= 0 AND tasksCompleted <= totalTasks - completedTasks
+                SET completedTasks = completedTasks + tasksCompleted
+                PRINT "Total tasks completed so far:", completedTasks
+            ELSE
+                PRINT "Invalid input. Please enter a valid number of tasks."
+
+    IF completedTasks == totalTasks
+        PRINT "All tasks have been completed. Good job, team!"
+    ELSE
+        SET remainingTasks = totalTasks - completedTasks
+        PRINT "There are", remainingTasks, "tasks remaining. Please ensure completion."
+
+END
+
+
+control structure for unfavourable working conditions 
+
+START
+    SET employeeList = [list of employees]
+    SET totalTasks = [total number of tasks]
+    SET completedTasks = 0
+    SET unfavorableConditions = False
+
+    FOR each employee in employeeList
+        PRINT "Supervising", employee
+
+        WHILE completedTasks < totalTasks
+            PRINT "Enter the number of tasks completed by", employee, "today:"
+            INPUT tasksCompleted
+
+            IF tasksCompleted >= 0 AND tasksCompleted <= totalTasks - completedTasks
+                SET completedTasks = completedTasks + tasksCompleted
+                PRINT "Total tasks completed so far:", completedTasks
+            ELSE
+                PRINT "Invalid input. Please enter a valid number of tasks."
+
+            IF unfavorableConditions == True
+                BREAK
+
+            PRINT "Are the working conditions unfavorable? (Y/N):"
+            INPUT conditionInput
+
+            IF conditionInput == "Y" OR conditionInput == "y"
+                SET unfavorableConditions = True
+
+        IF unfavorableConditions == True
+            BREAK
+
+    IF completedTasks == totalTasks
+        PRINT "All tasks have been completed. Good job, team!"
+    ELSE
+        IF unfavorableConditions == True
+            PRINT "Working conditions are unfavorable. Please address the issues."
+        ELSE
+            SET remainingTasks = totalTasks - completedTasks
+            PRINT "There are", remainingTasks, "tasks remaining. Keep up the good work!"
+
+END
+
+
+iterative control structure 
+solving unproper time management 
+SET total_time = 24  // Total available time in hours
+SET work_time = 0  // Total time allocated for work
+SET leisure_time = 0  // Total time allocated for leisure activities
+SET remaining_time = total_time
+
+WHILE remaining_time > 0 DO
+    DISPLAY "Enter the amount of time you want to allocate for work (in hours): "
+    READ work_time
+
+    DISPLAY "Enter the amount of time you want to allocate for leisure activities (in hours): "
+    READ leisure_time
+
+    SET total_allocated_time = work_time + leisure_time
+
+    IF total_allocated_time > total_time THEN
+        DISPLAY "The allocated time exceeds the total available time."
+    ELSE IF work_time < 0 OR leisure_time < 0 THEN
+        DISPLAY "Invalid time allocation. Time values cannot be negative."
+    ELSE IF total_allocated_time == 0 THEN
+        DISPLAY "You have not allocated any time. Please allocate time for work or leisure activities."
+    ELSE
+        SET remaining_time = total_time - total_allocated_time
+
+        IF remaining_time < 0 THEN
+            DISPLAY "You have allocated all your available time."
+        ELSE
+            DISPLAY "You have", remaining_time, "hours remaining for other activities."
+
+            // Additional actions or recommendations based on the time allocation
+
+        END IF
+    END IF
+END WHILE
+
+
+
+Reluctant supervision 
+
+    SET supervisor_present = false  // Flag to track supervisor presence
+
+WHILE supervisor_present == false DO
+    DISPLAY "Is the supervisor present? (Enter 'yes' or 'no'): "
+    READ supervisor_status
+
+    IF supervisor_status == "yes" THEN
+        DISPLAY "Great! The supervisor is present."
+        SET supervisor_present = true
+    ELSE IF supervisor_status == "no" THEN
+        DISPLAY "The supervisor is not present. Please wait or seek assistance from another responsible person."
+        // Additional actions can be taken based on the situation, such as contacting a higher authority or following established protocols.
+    ELSE
+        DISPLAY "Invalid input. Please enter 'yes' or 'no'."
+    END IF
+END WHILE
+
+// Rest of the code for performing tasks under the supervision
+
+
+unfavourable working conditions 
+SET satisfactory_conditions = false  // Flag to track satisfactory working conditions
+
+WHILE satisfactory_conditions == false DO
+    DISPLAY "Are the working conditions favorable? (Enter 'yes' or 'no'): "
+    READ conditions_status
+
+    IF conditions_status == "yes" THEN
+        DISPLAY "Great! The working conditions are favorable."
+        SET satisfactory_conditions = true
+    ELSE IF conditions_status == "no" THEN
+        DISPLAY "The working conditions are unfavorable. Please take necessary actions to improve the conditions."
+        // Additional actions can be taken based on the situation, such as reporting the issue to a supervisor or seeking assistance from relevant authorities.
+    ELSE
+        DISPLAY "Invalid input. Please enter 'yes' or 'no'."
+    END IF
+END WHILE
+
+// Rest of the code for performing tasks under favorable working conditions
+
+    
+    
